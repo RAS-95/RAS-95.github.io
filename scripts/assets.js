@@ -68,7 +68,7 @@ var ONGOING_PAPER = [
     {
         title: "Nuclei Classification in ER-IHC Stained Histopathology Images using Deep Learning Models",
         description: "Breast cancer treatment decisions hinge on the carcinoma stage, which is determined through pathological slides and estrogen receptor status. Traditionally, pathologists manually calculate the Allred score to assess tumor nuclei percentage and intensity. This study proposes an automated approach via digital pathology, leveraging deep learning to classify nuclei. We will  evaluate 32 pretrained models, including DenseNet, EfficientNet, InceptionResNet, ResNet, and MobileNetas well as Custom convolutional neural network to identify the most effective model for categorizing nuclei into negative, weak, moderate, and strong classifications from 44 estrogen receptor immunohistochemistry-stained whole slide images.",
-        image: "./images/Research/Journal/Workflow.drawio.jpg",
+        image: "./images/Research/Ongoing/ongoing.png",
         authors: [
             {
                 name: AUTHORS.SONGRAM_VAI.name,
@@ -83,7 +83,7 @@ var ONGOING_PAPER = [
         ],
         place: {
             name: "",
-            year: 2021,
+            year: "2024",
             prize: "",
             status: "",
             nb: "",
@@ -95,6 +95,10 @@ var ONGOING_PAPER = [
             },
             {
                 name: "abstract",
+                link: ""
+            },
+            {
+                name: "slide",
                 link: ""
             }
         ],
@@ -149,11 +153,11 @@ var COMPLETED_PAPER = [
         ],
         place: {
             name: "(ICCA 2024 - International Conference on Computing Advancements)",
-            year: 0,
+            year: "",
             prize: "",
             nb: "Will be published in the ACM Digital Library very soon",
             status: "Accepted",
-            special: "Undergraduate Thesis",
+            special: "Undergraduate Thesis [2023]",
         },
         tags: [
             {
@@ -162,6 +166,10 @@ var COMPLETED_PAPER = [
             },
             {
                 name: "abstract",
+                link: ""
+            },
+            {
+                name: "slide",
                 link: ""
             }
         ],
@@ -200,7 +208,7 @@ var COMPLETED_PAPER = [
         ],
         place: {
             name: "(ICCA 2024 - International Conference on Computing Advancements)",
-            year: 0,
+            year: "2023-2024",
             prize: "",
             status: "Accepted",
             nb: "Will be published in the ACM Digital Library very soon",
@@ -250,7 +258,7 @@ var COMPLETED_PAPER = [
         ],
         place: {
             name: "(ICCA 2024 - International Conference on Computing Advancements)",
-            year: 0,
+            year: "2024",
             prize: "",
             status: "Accepted",
             nb: "",
@@ -262,6 +270,10 @@ var COMPLETED_PAPER = [
             },
             {
                 name: "abstract",
+                link: ""
+            },
+            {
+                name: "slide",
                 link: ""
             }
         ],
@@ -293,7 +305,7 @@ var UNDER_REVIEW_PAPER = [
         place: {
             name: "(27th International Conference on Computer and Information Technology (ICCIT))",
             nb: "",
-            year: 0,
+            year: "2023-2024",
             prize: "",
             status: "",
         },
@@ -333,7 +345,7 @@ var UNDER_REVIEW_PAPER = [
         place: {
             name: "(27th International Conference on Computer and Information Technology (ICCIT))",
             nb: "",
-            year: 0,
+            year: "2023-2024",
             prize: "",
             status: "",
         },
@@ -344,6 +356,10 @@ var UNDER_REVIEW_PAPER = [
             },
             {
                 name: "abstract",
+                link: ""
+            },
+            {
+                name: "slide",
                 link: ""
             }
         ],
@@ -366,9 +382,9 @@ var UNDER_REVIEW_PAPER = [
             },
         ],
         place: {
-            name: "(27th International Conference on Computer and Information Technology (ICCIT))",
+            name: "Journal: Pattern Recognition-Q1(Expected)",
             nb: "",
-            year: 0,
+            year: "",
             prize: "",
             status: "",
         },
@@ -379,6 +395,10 @@ var UNDER_REVIEW_PAPER = [
             },
             {
                 name: "abstract",
+                link: ""
+            },
+            {
+                name: "slide",
                 link: ""
             }
         ],
@@ -423,7 +443,7 @@ var PROJECTS = [
         ],
         course: "Machine Learning Based Project, 2023",
         description: "This project involved curating a dataset of over 5,000 images of various hand gestures, aimed at creating a solution for enhancing communication for specially-abled individuals. I developed a custom convolutional neural network architecture that accurately recognizes these gestures, enabling intuitive interaction for those with communication challenges. Completing this project not only provided a meaningful tool for accessibility but also sparked my deeper exploration into the world of deep learning, refining my skills and expanding my understanding of complex neural networks.",
-        code: "",
+        code: "https://github.com/RAS-95/asl",
         image: "./images/Projects/Sign Language Detection/asl.gif",
         video: "",
         tools: ["Deep learning(CNN)", "Scikit-learn", "Keras", "Tensorflow"],
@@ -440,9 +460,9 @@ var PROJECTS = [
         ],
         course: "Web Based Project, 2021",
         description: "This system is designed to streamline the course enrollment process, significantly reducing the complexities associated with managing registrations. This innovative system simplifies the management of student information, allowing for efficient tracking and updates of student records. Additionally, it facilitates seamless payment processing, ensuring that financial transactions are handled swiftly and securely. By centralizing these functions, the system not only enhances operational efficiency but also improves the overall experience for both students and administrative staff.",
-        code: "https://www.linkedin.com/posts/rafi-songram_this-project-will-reduce-hassle-to-manage-activity-6807055004118212608-cGDW?utm_source=share&utm_medium=member_desktop",
+        code: "https://github.com/RAS-95/course-registration-system",
+        video: "https://www.linkedin.com/posts/rafi-songram_this-project-will-reduce-hassle-to-manage-activity-6807055004118212608-cGDW",
         image: "./images/Projects/course registration system/crs.gif",
-        video: "",
         tools: [
             "Java", "MySQL"
         ],
@@ -483,9 +503,9 @@ var PROJECTS = [
         ],
         course: "Web Based Project, 2020",
         description: "The Blood Donating Site is a user-friendly platform designed to enhance the efficiency of blood donation efforts. It features a robust User Account Management  system that allows both donors and recipients to easily register and manage their profiles. Users can conduct a  Donor Search , enabling them to find potential donors by city or blood group, thus facilitating quick connections with interested donors. Additionally, the site enforces Donation Restrictions , implementing a 3-month waiting period after each donation to ensure compliance with health guidelines. This thoughtful structure promotes a safe and effective blood donation culture within the community.",
-        code: "https://www.linkedin.com/posts/rafi-songram_backendwebdevelopment-php-phpproject-activity-6709095156810944512-WNu3?utm_source=share&utm_medium=member_desktop",
+        code: "https://github.com/RAS-95/donate-the-blood",
+        video: "https://www.linkedin.com/posts/rafi-songram_backendwebdevelopment-php-phpproject-activity-6709095156810944512-WNu3",
         image: "./images/Projects/Donate blood/1.png",
-        video: "",
         tools: [
             "HTML", "CSS", "JavaScript", "PHP", "MySQL"
         ],
@@ -551,7 +571,7 @@ var FUN_PROJECTS = [
         description: "This is a fun project I embarked on when I started learning PHP for the first time: a ToDo App. The application empowers users to efficiently manage their tasks through features that allow adding, editing, and deleting items, all while ensuring secure access with user authentication. With robust database integration, the app provides persistent storage, enabling users to retain their task lists across sessions. Developing this application has significantly enhanced my PHP proficiency and fueled my passion for crafting innovative web solutions.",
         code: "https://github.com/RAS-95/todo",
         image: "./images/Projects/Fun projects/TODO/todo.gif",
-        video: "https://www.linkedin.com/posts/rafi-songram_backendwebdevelopment-php-phpprojects-activity-6711009629989687296--MQu?utm_source=share&utm_medium=member_desktop",
+        video: "https://www.linkedin.com/posts/rafi-songram_backendwebdevelopment-php-phpprojects-activity-6711009629989687296--MQu",
         tools: [
             "CSS", "PHP"
         ],
@@ -680,20 +700,20 @@ function generatePaperTable(idName, PAPER) {
             }
             if ((_f = paper === null || paper === void 0 ? void 0 : paper.place) === null || _f === void 0 ? void 0 : _f.year) {
                 var yearElement = document.createElement('b');
-                yearElement.textContent = " (".concat(paper.place.year, ")");
+                yearElement.textContent = " [".concat(paper.place.year, "]");
                 placeInfo.appendChild(yearElement);
             }
-            if ((_g = paper === null || paper === void 0 ? void 0 : paper.place) === null || _g === void 0 ? void 0 : _g.nb) {
-                var nbElement = document.createElement('span');
-                nbElement.style.color = 'gray';
-                nbElement.innerHTML = " <strong>NB</strong> - <span c>".concat(paper.place.nb, "</span>");
-                placeInfo.appendChild(nbElement);
-            }
-            if ((_h = paper === null || paper === void 0 ? void 0 : paper.place) === null || _h === void 0 ? void 0 : _h.prize) {
+            if ((_g = paper === null || paper === void 0 ? void 0 : paper.place) === null || _g === void 0 ? void 0 : _g.prize) {
                 var prizeElement = document.createElement('span');
                 prizeElement.textContent = " - ".concat(paper.place.prize);
                 prizeElement.style.color = 'red';
                 placeInfo.appendChild(prizeElement);
+            }
+            if ((_h = paper === null || paper === void 0 ? void 0 : paper.place) === null || _h === void 0 ? void 0 : _h.nb) {
+                var nbElement = document.createElement('p');
+                nbElement.style.color = 'gray';
+                nbElement.innerHTML = " <strong>NB</strong> - <span c>".concat(paper.place.nb, "</span>");
+                placeInfo.appendChild(nbElement);
             }
             contentCell.appendChild(placeInfo);
             // Tags (abstract/code)
@@ -816,9 +836,23 @@ function generateCourseTable(idName, PROJECTS_LIST) {
                 courseInfo.style.color = 'darkgreen';
                 courseInfo.textContent = project.course;
                 contentCell.appendChild(courseInfo);
+                // insert a space after the course
+                contentCell.appendChild(document.createTextNode(' '));
             }
             // Links (code, video, etc.)
-            var linksParagraph = document.createElement('p');
+            var linksParagraph = document.createElement('span');
+            if (project.code || project.video) {
+                linksParagraph.appendChild(document.createTextNode(' - [ '));
+            }
+            if (project.code) {
+                var codeLink = document.createElement('a');
+                codeLink.href = project.code;
+                codeLink.target = '_blank';
+                codeLink.textContent = 'code';
+                codeLink.style.textDecoration = 'none';
+                codeLink.style.color = 'blue';
+                linksParagraph.appendChild(codeLink);
+            }
             if (project.video) {
                 if (project.code) {
                     linksParagraph.appendChild(document.createTextNode(' / '));
@@ -831,14 +865,8 @@ function generateCourseTable(idName, PROJECTS_LIST) {
                 videoLink.style.color = 'blue';
                 linksParagraph.appendChild(videoLink);
             }
-            if (project.code) {
-                var codeLink = document.createElement('a');
-                codeLink.href = project.code;
-                codeLink.target = '_blank';
-                codeLink.textContent = 'code';
-                codeLink.style.textDecoration = 'none';
-                codeLink.style.color = 'blue';
-                linksParagraph.appendChild(codeLink);
+            if (project.code || project.video) {
+                linksParagraph.appendChild(document.createTextNode(' ]'));
             }
             contentCell.appendChild(linksParagraph);
             // Description
