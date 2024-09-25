@@ -377,6 +377,10 @@ const UNDER_REVIEW_PAPER: IPaper[] = [
       {
         name: "abstract",
         link: ""
+      },
+      {
+        name: "slide",
+        link: ""
       }
     ],
     super_visors: [

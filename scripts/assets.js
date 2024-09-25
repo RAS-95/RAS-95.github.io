@@ -317,6 +317,10 @@ var UNDER_REVIEW_PAPER = [
             {
                 name: "abstract",
                 link: ""
+            },
+            {
+                name: "slide",
+                link: ""
             }
         ],
         super_visors: [
