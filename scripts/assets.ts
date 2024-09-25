@@ -118,6 +118,14 @@ const AUTHORS: ISupervisorList = {
     name: "Nazmul Haque",
     link: ""
   },
+  REYAL_VAI: {
+    name: "Mahmood Reyal",
+    link: ""
+  },
+  TUSHAR_VAI: {
+    name: "Tushar Das",
+    link: ""
+  }
 };
 
 const ONGOING_PAPER: IPaper[] = [
@@ -279,6 +287,10 @@ const COMPLETED_PAPER: IPaper[] = [
       },
       {
         name: "abstract",
+        link: ""
+      },
+      {
+        name: "slide",
         link: ""
       }
     ],
@@ -498,7 +510,7 @@ const PROJECTS: IProject[] = [
     super_visors: []
   },
   {
-    title: "Sign language Detection",
+    title: "Sign Language Detection",
     authors: [
       {
         name: AUTHORS.SONGRAM_VAI.name,
@@ -541,6 +553,16 @@ const PROJECTS: IProject[] = [
         affiliation: AUTHORS.SONGRAM_VAI.link,
         self: true
       },
+      {
+        name: AUTHORS.REYAL_VAI.name,
+        affiliation: AUTHORS.REYAL_VAI.link,
+        self: false
+      },
+      {
+        name: AUTHORS.TUSHAR_VAI.name,
+        affiliation: AUTHORS.TUSHAR_VAI.link,
+        self: false
+      },
     ],
     course: "Web Based Project, 2021",
     description: "RUET PEDIA is an interactive news portal for Rajshahi University of Engineering and Technology, designed to enhance user engagement and content sharing. It features a commenting system for user interaction, a header navbar for easy navigation, a slider for highlighting key news, and sections for recent content and university achievements. The backend includes secure user authentication, email verification, and an admin panel that allows for efficient content management, including editing and deleting posts. This streamlined structure fosters a vibrant community among students, faculty, and alumni while keeping them informed of the latest updates.",
@@ -553,7 +575,7 @@ const PROJECTS: IProject[] = [
     super_visors: [
       {
         name: AUTHORS.ABU_SAYEED_SIR.name,
-        link: ""
+        link: AUTHORS.ABU_SAYEED_SIR.link
       }
     ]
   },
@@ -793,6 +815,10 @@ function generatePaperTable(idName: string, PAPER: IPaper[] = []) {
       }
       contentCell.appendChild(placeInfo);
 
+      const tagCell = document.createElement('p')
+      if(paper?.tags && paper?.tags?.length > 0){
+        tagCell.appendChild(document.createTextNode('[ '))
+      }
       // Tags (abstract/code)
       (paper?.tags ?? []).forEach((tag, index) => {
         if (tag.link) {
@@ -800,16 +826,19 @@ function generatePaperTable(idName: string, PAPER: IPaper[] = []) {
           tagLink.href = tag.link;
           tagLink.target = '_blank';
           tagLink.textContent = tag.name ?? '';
-          contentCell.appendChild(tagLink);
+          tagCell.appendChild(tagLink);
         } else {
-          contentCell.appendChild(document.createTextNode(tag.name ?? ''));
+          tagCell.appendChild(document.createTextNode(tag.name ?? ''));
         }
-
+        
         if (paper.tags && index < paper.tags.length - 1) {
-          contentCell.appendChild(document.createTextNode(' / '));
+          tagCell.appendChild(document.createTextNode(' / '));
         }
       });
-      contentCell.appendChild(document.createElement('br'));
+      if(paper?.tags && paper?.tags?.length > 0){
+        tagCell.appendChild(document.createTextNode(' ]'))
+      }
+      contentCell.appendChild(tagCell);
 
       // Description
       const description = document.createElement('p');
@@ -968,6 +997,28 @@ function generateCourseTable(idName: string, PROJECTS_LIST: IProject[] = []) {
         const toolsParagraph = document.createElement('p');
         toolsParagraph.innerHTML = `<strong>Tools Used:</strong> ${project.tools.join(', ')}`;
         contentCell.appendChild(toolsParagraph);
+      }
+
+      if (project.super_visors && project.super_visors.length > 0) {
+        const supervisorHeader = document.createElement('h3');
+        supervisorHeader.style.color = 'darkblue';
+        supervisorHeader.textContent = 'Supervisor(s): ';
+        contentCell.appendChild(supervisorHeader);
+        project?.super_visors?.forEach((supervisor, index) => {
+          if (supervisor.link) {
+            const supervisorLink = document.createElement('a');
+            supervisorLink.href = supervisor.link;
+            supervisorLink.target = '_blank';
+            supervisorLink.textContent = supervisor.name ?? '';
+            contentCell.appendChild(supervisorLink);
+          } else {
+            contentCell.appendChild(document.createTextNode(supervisor.name ?? ''));
+          }
+
+          if (project?.super_visors && index < project.super_visors.length - 1) {
+            contentCell.appendChild(document.createTextNode(', '));
+          }
+        });
       }
 
 

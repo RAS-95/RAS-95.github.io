@@ -63,6 +63,14 @@ var AUTHORS = {
         name: "Nazmul Haque",
         link: ""
     },
+    REYAL_VAI: {
+        name: "Mahmood Reyal",
+        link: ""
+    },
+    TUSHAR_VAI: {
+        name: "Tushar Das",
+        link: ""
+    }
 };
 var ONGOING_PAPER = [
     {
@@ -220,6 +228,10 @@ var COMPLETED_PAPER = [
             },
             {
                 name: "abstract",
+                link: ""
+            },
+            {
+                name: "slide",
                 link: ""
             }
         ],
@@ -437,7 +449,7 @@ var PROJECTS = [
         super_visors: []
     },
     {
-        title: "Sign language Detection",
+        title: "Sign Language Detection",
         authors: [
             {
                 name: AUTHORS.SONGRAM_VAI.name,
@@ -480,6 +492,16 @@ var PROJECTS = [
                 affiliation: AUTHORS.SONGRAM_VAI.link,
                 self: true
             },
+            {
+                name: AUTHORS.REYAL_VAI.name,
+                affiliation: AUTHORS.REYAL_VAI.link,
+                self: false
+            },
+            {
+                name: AUTHORS.TUSHAR_VAI.name,
+                affiliation: AUTHORS.TUSHAR_VAI.link,
+                self: false
+            },
         ],
         course: "Web Based Project, 2021",
         description: "RUET PEDIA is an interactive news portal for Rajshahi University of Engineering and Technology, designed to enhance user engagement and content sharing. It features a commenting system for user interaction, a header navbar for easy navigation, a slider for highlighting key news, and sections for recent content and university achievements. The backend includes secure user authentication, email verification, and an admin panel that allows for efficient content management, including editing and deleting posts. This streamlined structure fosters a vibrant community among students, faculty, and alumni while keeping them informed of the latest updates.",
@@ -492,7 +514,7 @@ var PROJECTS = [
         super_visors: [
             {
                 name: AUTHORS.ABU_SAYEED_SIR.name,
-                link: ""
+                link: AUTHORS.ABU_SAYEED_SIR.link
             }
         ]
     },
@@ -624,7 +646,7 @@ function generatePaperTable(idName, PAPER) {
     var tableContainer = document.getElementById(idName);
     if (tableContainer && (PAPER === null || PAPER === void 0 ? void 0 : PAPER.length) > 0) {
         PAPER.forEach(function (paper) {
-            var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
+            var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o;
             // Create table row
             var row = document.createElement('tr');
             // Left-side image column
@@ -720,34 +742,41 @@ function generatePaperTable(idName, PAPER) {
                 placeInfo.appendChild(nbElement);
             }
             contentCell.appendChild(placeInfo);
+            var tagCell = document.createElement('p');
+            if ((paper === null || paper === void 0 ? void 0 : paper.tags) && ((_j = paper === null || paper === void 0 ? void 0 : paper.tags) === null || _j === void 0 ? void 0 : _j.length) > 0) {
+                tagCell.appendChild(document.createTextNode('[ '));
+            }
             // Tags (abstract/code)
-            ((_j = paper === null || paper === void 0 ? void 0 : paper.tags) !== null && _j !== void 0 ? _j : []).forEach(function (tag, index) {
+            ((_k = paper === null || paper === void 0 ? void 0 : paper.tags) !== null && _k !== void 0 ? _k : []).forEach(function (tag, index) {
                 var _a, _b;
                 if (tag.link) {
                     var tagLink = document.createElement('a');
                     tagLink.href = tag.link;
                     tagLink.target = '_blank';
                     tagLink.textContent = (_a = tag.name) !== null && _a !== void 0 ? _a : '';
-                    contentCell.appendChild(tagLink);
+                    tagCell.appendChild(tagLink);
                 }
                 else {
-                    contentCell.appendChild(document.createTextNode((_b = tag.name) !== null && _b !== void 0 ? _b : ''));
+                    tagCell.appendChild(document.createTextNode((_b = tag.name) !== null && _b !== void 0 ? _b : ''));
                 }
                 if (paper.tags && index < paper.tags.length - 1) {
-                    contentCell.appendChild(document.createTextNode(' / '));
+                    tagCell.appendChild(document.createTextNode(' / '));
                 }
             });
-            contentCell.appendChild(document.createElement('br'));
+            if ((paper === null || paper === void 0 ? void 0 : paper.tags) && ((_l = paper === null || paper === void 0 ? void 0 : paper.tags) === null || _l === void 0 ? void 0 : _l.length) > 0) {
+                tagCell.appendChild(document.createTextNode(' ]'));
+            }
+            contentCell.appendChild(tagCell);
             // Description
             var description = document.createElement('p');
-            description.textContent = (_k = paper.description) !== null && _k !== void 0 ? _k : '';
+            description.textContent = (_m = paper.description) !== null && _m !== void 0 ? _m : '';
             contentCell.appendChild(description);
             // Supervisors
             var supervisorHeader = document.createElement('h3');
             supervisorHeader.style.color = 'darkblue';
             supervisorHeader.textContent = 'Supervisor(s): ';
             contentCell.appendChild(supervisorHeader);
-            (_l = paper === null || paper === void 0 ? void 0 : paper.super_visors) === null || _l === void 0 ? void 0 : _l.forEach(function (supervisor, index) {
+            (_o = paper === null || paper === void 0 ? void 0 : paper.super_visors) === null || _o === void 0 ? void 0 : _o.forEach(function (supervisor, index) {
                 var _a, _b;
                 if (supervisor.link) {
                     var supervisorLink = document.createElement('a');
@@ -784,7 +813,7 @@ function generateCourseTable(idName, PROJECTS_LIST) {
     var projectsTable = document.getElementById(idName);
     if (projectsTable) {
         PROJECTS_LIST.forEach(function (project) {
-            var _a, _b, _c;
+            var _a, _b, _c, _d;
             var row = document.createElement('tr');
             // Image column
             var imageCell = document.createElement('td');
@@ -882,6 +911,28 @@ function generateCourseTable(idName, PROJECTS_LIST) {
                 var toolsParagraph = document.createElement('p');
                 toolsParagraph.innerHTML = "<strong>Tools Used:</strong> ".concat(project.tools.join(', '));
                 contentCell.appendChild(toolsParagraph);
+            }
+            if (project.super_visors && project.super_visors.length > 0) {
+                var supervisorHeader = document.createElement('h3');
+                supervisorHeader.style.color = 'darkblue';
+                supervisorHeader.textContent = 'Supervisor(s): ';
+                contentCell.appendChild(supervisorHeader);
+                (_d = project === null || project === void 0 ? void 0 : project.super_visors) === null || _d === void 0 ? void 0 : _d.forEach(function (supervisor, index) {
+                    var _a, _b;
+                    if (supervisor.link) {
+                        var supervisorLink = document.createElement('a');
+                        supervisorLink.href = supervisor.link;
+                        supervisorLink.target = '_blank';
+                        supervisorLink.textContent = (_a = supervisor.name) !== null && _a !== void 0 ? _a : '';
+                        contentCell.appendChild(supervisorLink);
+                    }
+                    else {
+                        contentCell.appendChild(document.createTextNode((_b = supervisor.name) !== null && _b !== void 0 ? _b : ''));
+                    }
+                    if ((project === null || project === void 0 ? void 0 : project.super_visors) && index < project.super_visors.length - 1) {
+                        contentCell.appendChild(document.createTextNode(', '));
+                    }
+                });
             }
             row.appendChild(contentCell);
             // Append the row to the table
