@@ -626,7 +626,7 @@ const ASSIGNMENT_PROJECTS: IProject[] = [
     ]
   },
   {
-    title: "Empowering Predictive Analytics for Heart Disease Detection",
+    title: "K-Nearest Neighbors Approach: Empowering Predictive Analytics for Heart Disease Detection",
     authors: [
       {
         name: AUTHORS.SONGRAM_VAI.name,
