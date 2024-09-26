@@ -626,7 +626,7 @@ var FUN_PROJECTS = [
 var SOCIAL_LINKS = [
     {
         name: "CV",
-        link: "https://drive.google.com/file/d/1FZPK-P-In7p8f2Tt0zxIEGTW3QQFESQE/view"
+        link: "https://drive.google.com/file/d/1yEg5CvkRQh_NDT10Dk7fDKae3z-3JE66/view?usp=sharing"
     },
     {
         name: "GitHub",
