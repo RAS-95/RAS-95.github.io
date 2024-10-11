@@ -602,6 +602,30 @@ const PROJECTS: IProject[] = [
 
 const ASSIGNMENT_PROJECTS: IProject[] = [
   {
+    title: "Human-Computer Interaction Through Emotion Recognition: Development of a Custom CNN Architecture for Facial Expression Classification",
+    authors: [
+      {
+        name: AUTHORS.SONGRAM_VAI.name,
+        affiliation: AUTHORS.SONGRAM_VAI.link,
+        self: true
+      },
+    ],
+    course: "Neural Network Project, 2023",
+    description: "This project focuses on automatic human emotion recognition, a field that has gained significant attention with the rise of IoT and the development of smart environments in hospitals, homes, and cities. Intelligent Personal Assistants (IPAs) like Siri, Alexa, and Cortana utilize natural language processing to interact with humans, but integrating emotion recognition can enhance communication and bring systems closer to human-level intelligence. In this project, we are classifying facial expressions using the VGG-16 architecture, while also working on developing a custom CNN architecture for improved accuracy. The work is ongoing, with promising results from initial samples.",
+    code: "https://github.com/RAS-95/Facial-Recognition",
+    image: "./images/Projects/Facial-Expression/facial.gif",
+    video: "",
+    tools: [
+      "Python ( Panda, Scikit-learn, Keras, Tensorflow)"
+    ],
+    super_visors: [
+      {
+        name: AUTHORS.RIZOAN_SIR.name,
+        link: AUTHORS.RIZOAN_SIR.link,
+      }
+    ]
+  },
+  {
     title: "Predicting Diabetes: Multi-Layer Neural Network Approach for Early Detection",
     authors: [
       {
