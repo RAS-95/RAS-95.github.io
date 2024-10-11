@@ -388,7 +388,7 @@ var UNDER_REVIEW_PAPER = [
     },
     {
         title: "RAS-Compound Character Dataset: A Comprehensive Database for Handwritten Bangla Compound Characters and Recognition Using RAS-BengaliNet with Grad-CAM Visualization",
-        description: "This work and dataset  serves as an extensive resource designed for the accurate recognition of handwritten Bangla compound characters. Leveraging *RAS-BengaliNet*, a specialized deep learning model, this research offers an efficient solution for complex script recognition. Grad-CAM visualization enhances interpretability, providing crucial insights into the model’s decision-making process, making it highly beneficial for NLP-based applications and advancing Bangla character recognition technology.",
+        description: "This work and dataset  serves as an extensive resource designed for the accurate recognition of handwritten Bangla compound characters. Leveraging RAS-BengaliNet, a specialized deep learning model, this research offers an efficient solution for complex script recognition. Grad-CAM visualization enhances interpretability, providing crucial insights into the model’s decision-making process, making it highly beneficial for NLP-based applications and advancing Bangla character recognition technology.",
         image: "./images/Research/Journal/Workflow.drawio.jpg",
         authors: [
             {
@@ -398,7 +398,7 @@ var UNDER_REVIEW_PAPER = [
             },
         ],
         place: {
-            name: "Journal: Pattern Recognition-Q1(Expected)",
+            name: "Journal: Information Fusion -Q1(Expected)",
             nb: "",
             year: "",
             prize: "",
