@@ -427,6 +427,10 @@ var UNDER_REVIEW_PAPER = [
                 name: AUTHORS.SRIZON_SIR.name,
                 link: AUTHORS.SRIZON_SIR.link,
             },
+            {
+                name: AUTHORS.ALI_SIR.name,
+                link: AUTHORS.ALI_SIR.link,
+            },
         ]
     }
 ];
@@ -457,13 +461,35 @@ var PROJECTS = [
                 self: true
             },
         ],
-        course: "Machine Learning Based Project, 2023",
+        course: "Machine Learning Based Project, 2022",
         description: "This project involved curating a dataset of over 5,000 images of various hand gestures, aimed at creating a solution for enhancing communication for specially-abled individuals. I developed a custom convolutional neural network architecture that accurately recognizes these gestures, enabling intuitive interaction for those with communication challenges. Completing this project not only provided a meaningful tool for accessibility but also sparked my deeper exploration into the world of deep learning, refining my skills and expanding my understanding of complex neural networks.",
         code: "https://github.com/RAS-95/asl",
         image: "./images/Projects/Sign Language Detection/asl.gif",
         video: "",
         tools: ["Deep learning(CNN)", "Scikit-learn", "Keras", "Tensorflow"],
         super_visors: []
+    },
+    {
+        title: "Real-Time Intelligence: Advancing Object Detection with YOLOv8m for Edge-Driven Applications",
+        authors: [
+            {
+                name: AUTHORS.SONGRAM_VAI.name,
+                affiliation: AUTHORS.SONGRAM_VAI.link,
+                self: true
+            },
+        ],
+        course: "Computer Vision Project, 2022",
+        description: "Crafted an advanced YOLOv8m model that brings real-time object detection to life, powering applications from autonomous vehicles to next-gen surveillance systems. With smart data augmentations and finely tuned anchor boxes, the model delivers razor-sharp accuracy, achieving an impressive mAP of [insert value]. Engineered for speed and lightweight efficiency, it’s ready to run seamlessly on edge devices like drones and mobile platforms. This project pushes the boundaries of AI, blending cutting-edge tech with real-world impact, perfect for high-stakes environments where every second counts.",
+        code: "https://github.com/RAS-95/real-Time-Object-Detection",
+        image: "./images/Projects/Object-Detection/object-detection.gif",
+        video: "",
+        tools: ["Python", "YOLOv8", "Pytorch", "OpenCv", "Pillow (PIL)", "Scikit-learn", "Keras", "Tensorflow"],
+        super_visors: [
+            {
+                name: AUTHORS.ABU_SAYEED_SIR.name,
+                link: AUTHORS.ABU_SAYEED_SIR.link
+            }
+        ]
     },
     {
         title: "RUET Course Registration System",
@@ -650,7 +676,7 @@ var FUN_PROJECTS = [
 var SOCIAL_LINKS = [
     {
         name: "CV",
-        link: "https://drive.google.com/file/d/1bPtASySeNG2hpOjHcQju70n0HtizZMKA/view?usp=sharing"
+        link: "https://drive.google.com/file/d/1gz_1g_RtNBi2VB07IHQ7e5EyOpMF-afF/view?usp=sharing"
     },
     {
         name: "GitHub",
