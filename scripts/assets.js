@@ -295,9 +295,7 @@ var COMPLETED_PAPER = [
                 link: AUTHORS.SRIZON_SIR.link,
             }
         ]
-    }
-];
-var UNDER_REVIEW_PAPER = [
+    },
     {
         title: "Optimizing Brain Tumor Diagnosis: Hybrid Techniques Integrating Deep and Machine Learning on MRI Images",
         description: "Misdiagnosis of tumors often leads to ineffective treatments, reducing patient survival rates. This study explores a unique hybrid approach, merging deep learning with traditional machine learning for accurate brain tumor detection and classification. Alongside, a custom CCNN+ML hybrid method was implemented, further refining results. MRI images were enhanced using Contrast Limited Adaptive Histogram Equalization (CLAHE) to optimize feature quality, boosting diagnostic precision.",
@@ -676,7 +674,7 @@ var FUN_PROJECTS = [
 var SOCIAL_LINKS = [
     {
         name: "CV",
-        link: "https://drive.google.com/file/d/1gz_1g_RtNBi2VB07IHQ7e5EyOpMF-afF/view?usp=sharing"
+        link: "https://drive.google.com/file/d/1lDLnmFNayB5u2Vxukp9F_RAhoPDq3zC5/view?usp=sharing"
     },
     {
         name: "GitHub",
@@ -1017,7 +1015,7 @@ function socialMediaTable() {
 window.addEventListener('DOMContentLoaded', function () {
     generatePaperTable('ongoing-paper-container', ONGOING_PAPER);
     generatePaperTable('complete-paper-container', COMPLETED_PAPER);
-    generatePaperTable('under-review-paper-container', UNDER_REVIEW_PAPER);
+    //generatePaperTable('under-review-paper-container', UNDER_REVIEW_PAPER);
     socialMediaTable();
     generateCourseTable('project-container', PROJECTS);
     generateCourseTable('assignment-project-container', ASSIGNMENT_PROJECTS);
