@@ -737,7 +737,7 @@ const FUN_PROJECTS: IProject[] = [
 const SOCIAL_LINKS = [
   {
     name: "CV",
-    link: "https://drive.google.com/file/d/1RCx8r3HHZB73QiNaYlqMufxNDMUKHUtK/view?usp=sharing"
+    link: "https://drive.google.com/file/d/1z_XZDFhj8a-5XuPLDOLFbflYx9n3mLqT/view?usp=sharing"
   },
   {
     name: "GitHub",
