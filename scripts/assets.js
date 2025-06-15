@@ -164,7 +164,7 @@ var COMPLETED_PAPER = [
             name: "(ICCA 2024 - International Conference on Computing Advancements)",
             year: "",
             prize: "",
-            nb: "Published in the ACM Digital Library very soon",
+            nb: "Published in the ACM Digital Library",
             special: "Undergraduate Thesis [2023]",
         },
         tags: [
@@ -219,7 +219,7 @@ var COMPLETED_PAPER = [
             name: "(ICCA 2024 - International Conference on Computing Advancements)",
             year: "2023-2024",
             prize: "",
-            nb: "Published in the ACM Digital Library very soon",
+            nb: "Published in the ACM Digital Library",
         },
         tags: [
             {
@@ -688,10 +688,11 @@ var SOCIAL_LINKS = [
         link: "https://www.linkedin.com/in/rafi-songram/",
     },
     {
-        name: "Facebook",
-        link: "https://www.facebook.com/rafiahammed.songram/",
+        name: "Google Scholar",
+        link: "https://scholar.google.com/citations?hl=en&user=IjUZQNUAAAAJ",
     }
 ];
+// Assuming IAuthor, IPlace, ITag, and ISupervisor interfaces are defined elsewhere
 function generatePaperTable(idName, PAPER) {
     if (PAPER === void 0) { PAPER = []; }
     var tableContainer = document.getElementById(idName);
@@ -722,11 +723,22 @@ function generatePaperTable(idName, PAPER) {
             // Title
             var title = document.createElement('h3');
             title.style.color = 'darkblue';
-            title.textContent = (_a = paper.title) !== null && _a !== void 0 ? _a : '';
+            if (paper.DOI) {
+                var titleLink = document.createElement('a');
+                titleLink.href = paper.DOI;
+                titleLink.target = '_blank';
+                titleLink.textContent = (_a = paper.title) !== null && _a !== void 0 ? _a : '';
+                titleLink.style.color = 'inherit'; // Inherit color from parent
+                titleLink.style.textDecoration = 'none'; // Optional: remove underline
+                title.appendChild(titleLink);
+            }
+            else {
+                title.textContent = (_b = paper.title) !== null && _b !== void 0 ? _b : '';
+            }
             contentCell.appendChild(title);
             contentCell.appendChild(document.createElement('br'));
             // Authors
-            (_b = paper === null || paper === void 0 ? void 0 : paper.authors) === null || _b === void 0 ? void 0 : _b.forEach(function (author, index) {
+            (_c = paper === null || paper === void 0 ? void 0 : paper.authors) === null || _c === void 0 ? void 0 : _c.forEach(function (author, index) {
                 var _a, _b;
                 var authorElement;
                 // If the author is marked as self, bold the name
@@ -755,7 +767,7 @@ function generatePaperTable(idName, PAPER) {
             });
             // Year and Status
             var placeInfo = document.createElement('p');
-            if ((_c = paper === null || paper === void 0 ? void 0 : paper.place) === null || _c === void 0 ? void 0 : _c.special) {
+            if ((_d = paper === null || paper === void 0 ? void 0 : paper.place) === null || _d === void 0 ? void 0 : _d.special) {
                 var specialElement = document.createElement('p');
                 specialElement.textContent = paper.place.special;
                 specialElement.style.fontWeight = 'bold';
@@ -763,8 +775,8 @@ function generatePaperTable(idName, PAPER) {
                 specialElement.style.color = 'green';
                 placeInfo.appendChild(specialElement);
             }
-            if ((_d = paper === null || paper === void 0 ? void 0 : paper.place) === null || _d === void 0 ? void 0 : _d.name) {
-                if ((_e = paper === null || paper === void 0 ? void 0 : paper.place) === null || _e === void 0 ? void 0 : _e.status) {
+            if ((_e = paper === null || paper === void 0 ? void 0 : paper.place) === null || _e === void 0 ? void 0 : _e.name) {
+                if ((_f = paper === null || paper === void 0 ? void 0 : paper.place) === null || _f === void 0 ? void 0 : _f.status) {
                     var statusElement = document.createElement('span');
                     statusElement.textContent = "".concat(paper.place.status, " - ");
                     statusElement.style.color = 'green';
@@ -775,18 +787,18 @@ function generatePaperTable(idName, PAPER) {
                 placeElement.style.color = 'green';
                 placeInfo.appendChild(placeElement);
             }
-            if ((_f = paper === null || paper === void 0 ? void 0 : paper.place) === null || _f === void 0 ? void 0 : _f.year) {
+            if ((_g = paper === null || paper === void 0 ? void 0 : paper.place) === null || _g === void 0 ? void 0 : _g.year) {
                 var yearElement = document.createElement('b');
                 yearElement.textContent = " [".concat(paper.place.year, "]");
                 placeInfo.appendChild(yearElement);
             }
-            if ((_g = paper === null || paper === void 0 ? void 0 : paper.place) === null || _g === void 0 ? void 0 : _g.prize) {
+            if ((_h = paper === null || paper === void 0 ? void 0 : paper.place) === null || _h === void 0 ? void 0 : _h.prize) {
                 var prizeElement = document.createElement('span');
                 prizeElement.textContent = " - ".concat(paper.place.prize);
                 prizeElement.style.color = 'red';
                 placeInfo.appendChild(prizeElement);
             }
-            if ((_h = paper === null || paper === void 0 ? void 0 : paper.place) === null || _h === void 0 ? void 0 : _h.nb) {
+            if ((_j = paper === null || paper === void 0 ? void 0 : paper.place) === null || _j === void 0 ? void 0 : _j.nb) {
                 var nbElement = document.createElement('p');
                 nbElement.style.color = 'gray';
                 nbElement.innerHTML = " <strong>NB</strong> - <span c>".concat(paper.place.nb, "</span>");
@@ -794,11 +806,11 @@ function generatePaperTable(idName, PAPER) {
             }
             contentCell.appendChild(placeInfo);
             var tagCell = document.createElement('p');
-            if ((paper === null || paper === void 0 ? void 0 : paper.tags) && ((_j = paper === null || paper === void 0 ? void 0 : paper.tags) === null || _j === void 0 ? void 0 : _j.length) > 0) {
+            if ((paper === null || paper === void 0 ? void 0 : paper.tags) && ((_k = paper === null || paper === void 0 ? void 0 : paper.tags) === null || _k === void 0 ? void 0 : _k.length) > 0) {
                 tagCell.appendChild(document.createTextNode('[ '));
             }
             // Tags (abstract/code)
-            ((_k = paper === null || paper === void 0 ? void 0 : paper.tags) !== null && _k !== void 0 ? _k : []).forEach(function (tag, index) {
+            ((_l = paper === null || paper === void 0 ? void 0 : paper.tags) !== null && _l !== void 0 ? _l : []).forEach(function (tag, index) {
                 var _a, _b;
                 if (tag.link) {
                     var tagLink = document.createElement('a');
@@ -814,35 +826,37 @@ function generatePaperTable(idName, PAPER) {
                     tagCell.appendChild(document.createTextNode(' / '));
                 }
             });
-            if ((paper === null || paper === void 0 ? void 0 : paper.tags) && ((_l = paper === null || paper === void 0 ? void 0 : paper.tags) === null || _l === void 0 ? void 0 : _l.length) > 0) {
+            if ((paper === null || paper === void 0 ? void 0 : paper.tags) && ((_m = paper === null || paper === void 0 ? void 0 : paper.tags) === null || _m === void 0 ? void 0 : _m.length) > 0) {
                 tagCell.appendChild(document.createTextNode(' ]'));
             }
             contentCell.appendChild(tagCell);
             // Description
             var description = document.createElement('p');
-            description.textContent = (_m = paper.description) !== null && _m !== void 0 ? _m : '';
+            description.textContent = (_o = paper.description) !== null && _o !== void 0 ? _o : '';
             contentCell.appendChild(description);
             // Supervisors
-            var supervisorHeader = document.createElement('h3');
-            supervisorHeader.style.color = 'darkblue';
-            supervisorHeader.textContent = 'Supervisor(s): ';
-            contentCell.appendChild(supervisorHeader);
-            (_o = paper === null || paper === void 0 ? void 0 : paper.super_visors) === null || _o === void 0 ? void 0 : _o.forEach(function (supervisor, index) {
-                var _a, _b;
-                if (supervisor.link) {
-                    var supervisorLink = document.createElement('a');
-                    supervisorLink.href = supervisor.link;
-                    supervisorLink.target = '_blank';
-                    supervisorLink.textContent = (_a = supervisor.name) !== null && _a !== void 0 ? _a : '';
-                    contentCell.appendChild(supervisorLink);
-                }
-                else {
-                    contentCell.appendChild(document.createTextNode((_b = supervisor.name) !== null && _b !== void 0 ? _b : ''));
-                }
-                if ((paper === null || paper === void 0 ? void 0 : paper.super_visors) && index < paper.super_visors.length - 1) {
-                    contentCell.appendChild(document.createTextNode(', '));
-                }
-            });
+            if ((paper === null || paper === void 0 ? void 0 : paper.super_visors) && paper.super_visors.length > 0) {
+                var supervisorHeader = document.createElement('h3');
+                supervisorHeader.style.color = 'darkblue';
+                supervisorHeader.textContent = 'Supervisor(s): ';
+                contentCell.appendChild(supervisorHeader);
+                paper.super_visors.forEach(function (supervisor, index) {
+                    var _a, _b;
+                    if (supervisor.link) {
+                        var supervisorLink = document.createElement('a');
+                        supervisorLink.href = supervisor.link;
+                        supervisorLink.target = '_blank';
+                        supervisorLink.textContent = (_a = supervisor.name) !== null && _a !== void 0 ? _a : '';
+                        contentCell.appendChild(supervisorLink);
+                    }
+                    else {
+                        contentCell.appendChild(document.createTextNode((_b = supervisor.name) !== null && _b !== void 0 ? _b : ''));
+                    }
+                    if (paper.super_visors && index < paper.super_visors.length - 1) {
+                        contentCell.appendChild(document.createTextNode(', '));
+                    }
+                });
+            }
             // Append cells to row
             row.appendChild(imageCell);
             row.appendChild(contentCell);
@@ -855,7 +869,7 @@ function generatePaperTable(idName, PAPER) {
             }
         });
     }
-    else {
+    else if (!tableContainer) {
         console.error('Table container not found');
     }
 }

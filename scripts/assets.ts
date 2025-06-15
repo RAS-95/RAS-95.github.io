@@ -224,7 +224,7 @@ const COMPLETED_PAPER: IPaper[] = [
       name: "(ICCA 2024 - International Conference on Computing Advancements)",
       year: "",
       prize: "",
-      nb: "Published in the ACM Digital Library very soon",
+      nb: "Published in the ACM Digital Library",
       special: "Undergraduate Thesis [2023]",
     },
     tags: [
@@ -279,7 +279,7 @@ const COMPLETED_PAPER: IPaper[] = [
       name: "(ICCA 2024 - International Conference on Computing Advancements)",
       year: "2023-2024",
       prize: "",
-      nb: "Published in the ACM Digital Library very soon",
+      nb: "Published in the ACM Digital Library",
     },
     tags: [
       {
@@ -752,10 +752,12 @@ const SOCIAL_LINKS = [
     link: "https://www.linkedin.com/in/rafi-songram/",
   },
   {
-    name: "Facebook",
-    link: "https://www.facebook.com/rafiahammed.songram/",
+    name: "Google Scholar",
+    link: "https://scholar.google.com/citations?hl=en&user=IjUZQNUAAAAJ",
   }
 ];
+
+// Assuming IAuthor, IPlace, ITag, and ISupervisor interfaces are defined elsewhere
 
 function generatePaperTable(idName: string, PAPER: IPaper[] = []) {
   const tableContainer = document.getElementById(idName);
@@ -790,7 +792,19 @@ function generatePaperTable(idName: string, PAPER: IPaper[] = []) {
       // Title
       const title = document.createElement('h3');
       title.style.color = 'darkblue';
-      title.textContent = paper.title ?? '';
+
+      if (paper.DOI) {
+        const titleLink = document.createElement('a');
+        titleLink.href = paper.DOI;
+        titleLink.target = '_blank';
+        titleLink.textContent = paper.title ?? '';
+        titleLink.style.color = 'inherit'; // Inherit color from parent
+        titleLink.style.textDecoration = 'none'; // Optional: remove underline
+        title.appendChild(titleLink);
+      } else {
+        title.textContent = paper.title ?? '';
+      }
+
       contentCell.appendChild(title);
       contentCell.appendChild(document.createElement('br'));
 
@@ -867,7 +881,7 @@ function generatePaperTable(idName: string, PAPER: IPaper[] = []) {
       contentCell.appendChild(placeInfo);
 
       const tagCell = document.createElement('p')
-      if(paper?.tags && paper?.tags?.length > 0){
+      if (paper?.tags && paper?.tags?.length > 0) {
         tagCell.appendChild(document.createTextNode('[ '))
       }
       // Tags (abstract/code)
@@ -881,12 +895,12 @@ function generatePaperTable(idName: string, PAPER: IPaper[] = []) {
         } else {
           tagCell.appendChild(document.createTextNode(tag.name ?? ''));
         }
-        
+
         if (paper.tags && index < paper.tags.length - 1) {
           tagCell.appendChild(document.createTextNode(' / '));
         }
       });
-      if(paper?.tags && paper?.tags?.length > 0){
+      if (paper?.tags && paper?.tags?.length > 0) {
         tagCell.appendChild(document.createTextNode(' ]'))
       }
       contentCell.appendChild(tagCell);
@@ -897,26 +911,29 @@ function generatePaperTable(idName: string, PAPER: IPaper[] = []) {
       contentCell.appendChild(description);
 
       // Supervisors
-      const supervisorHeader = document.createElement('h3');
-      supervisorHeader.style.color = 'darkblue';
-      supervisorHeader.textContent = 'Supervisor(s): ';
-      contentCell.appendChild(supervisorHeader);
+      if (paper?.super_visors && paper.super_visors.length > 0) {
+        const supervisorHeader = document.createElement('h3');
+        supervisorHeader.style.color = 'darkblue';
+        supervisorHeader.textContent = 'Supervisor(s): ';
+        contentCell.appendChild(supervisorHeader);
 
-      paper?.super_visors?.forEach((supervisor, index) => {
-        if (supervisor.link) {
-          const supervisorLink = document.createElement('a');
-          supervisorLink.href = supervisor.link;
-          supervisorLink.target = '_blank';
-          supervisorLink.textContent = supervisor.name ?? '';
-          contentCell.appendChild(supervisorLink);
-        } else {
-          contentCell.appendChild(document.createTextNode(supervisor.name ?? ''));
-        }
+        paper.super_visors.forEach((supervisor, index) => {
+          if (supervisor.link) {
+            const supervisorLink = document.createElement('a');
+            supervisorLink.href = supervisor.link;
+            supervisorLink.target = '_blank';
+            supervisorLink.textContent = supervisor.name ?? '';
+            contentCell.appendChild(supervisorLink);
+          } else {
+            contentCell.appendChild(document.createTextNode(supervisor.name ?? ''));
+          }
 
-        if (paper?.super_visors && index < paper.super_visors.length - 1) {
-          contentCell.appendChild(document.createTextNode(', '));
-        }
-      });
+          if (paper.super_visors && index < paper.super_visors.length - 1) {
+            contentCell.appendChild(document.createTextNode(', '));
+          }
+        });
+      }
+
 
       // Append cells to row
       row.appendChild(imageCell);
@@ -930,7 +947,7 @@ function generatePaperTable(idName: string, PAPER: IPaper[] = []) {
         console.error('Table container not found');
       }
     });
-  } else {
+  } else if (!tableContainer) {
     console.error('Table container not found');
   }
 }
