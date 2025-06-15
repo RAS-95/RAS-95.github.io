@@ -35,6 +35,7 @@ interface IPaper {
   title?: string;
   description?: string;
   image?: string;
+  DOI?:string;
   authors?: IAuthor[];
   place?: IPlace;
   tags?: ITag[];
@@ -186,6 +187,7 @@ const COMPLETED_PAPER: IPaper[] = [
     title: "RAS-BengaliNet: A Novel Lightweight Custom Convolutional Neural Network for Enhanced Recognition of Handwritten Bangla Compound Characters",
     description: "Bengali, the fifth most widely spoken native language, presents unique challenges in character recognition due to its complex script. This study introduces an efficient lightweight CNN architecture for recognizing handwritten Bengali compound characters, outperforming different pretrained models in terms of computational efficiency. Additionally, Grad-CAM was utilized to identify crucial regions influencing the model's decisions, enhancing interpretability.",
     image: "./images/Research/RAS-BengaliNet/1.png",
+    DOI: "https://doi.org/10.1145/3723178.3723298",
     authors: [
       {
         name: AUTHORS.SONGRAM_VAI.name,
@@ -222,8 +224,7 @@ const COMPLETED_PAPER: IPaper[] = [
       name: "(ICCA 2024 - International Conference on Computing Advancements)",
       year: "",
       prize: "",
-      nb: "Will be published in the ACM Digital Library very soon",
-      status: "Accepted",
+      nb: "Published in the ACM Digital Library very soon",
       special: "Undergraduate Thesis [2023]",
     },
     tags: [
@@ -255,6 +256,7 @@ const COMPLETED_PAPER: IPaper[] = [
     title: "Network-Shield: Exploring the Efficacy of GRU Model in Intrusion Detection Using CIC-IDS 2018 Dataset",
     description: "This study highlights the effectiveness of a Gated Recurrent Unit (GRU) model in detecting rare but significant security threats. To address data imbalance, Synthetic Minority Over-sampling Technique (SMOTE) was applied, boosting model precision. Additionally, Random Forest was employed for feature selection, enhancing detection efficiency, leading to exceptional results in network intrusion detection.",
     image: "./images/Research/Network-shield/attack-dist.png",
+    DOI: "https://doi.org/10.1145/3723178.3723318",
     authors: [
       // Md. Ashik Elahi , Rafi Ahammed Songram, Md. Shahid Uz Zaman
       {
@@ -277,8 +279,7 @@ const COMPLETED_PAPER: IPaper[] = [
       name: "(ICCA 2024 - International Conference on Computing Advancements)",
       year: "2023-2024",
       prize: "",
-      status: "Accepted",
-      nb: "Will be published in the ACM Digital Library very soon",
+      nb: "Published in the ACM Digital Library very soon",
     },
     tags: [
       {
@@ -305,6 +306,7 @@ const COMPLETED_PAPER: IPaper[] = [
     title: "Enhanced Osteoarthritis Classification through Transfer Learning and Hyperparameter-Tuned Multi-Layer Ensemble Models",
     description: "This paper presents a novel approach for OA classification by leveraging a transfer learning fusion network and fine-tuned hyperparameters. Starting with dataset balancing through data augmentation, it integrates a pre-trained model with a customized CNN featuring four convolutional blocks. The Multi-Layer Ensemble technique merges different model outputs, achieving superior overall performance.",
     image: "./images/Research/Osteoarthritis Classification/Sequential Workflow_2-1.png",
+    DOI: "https://doi.org/10.1109/ICISET62123.2024.10941130",
     authors: [
       {
         name: AUTHORS.NAZMUL_VAI.name,
@@ -356,9 +358,10 @@ const COMPLETED_PAPER: IPaper[] = [
     ]
   },
   {
-    title: "Optimizing Brain Tumor Diagnosis: Hybrid Techniques Integrating Deep and Machine Learning on MRI Images",
+    title: "SFTNet: A Hybrid Approach Combining Deep Learning and Machine Learning for Brain Tumor Classification",
     description: "Misdiagnosis of tumors often leads to ineffective treatments, reducing patient survival rates. This study explores a unique hybrid approach, merging deep learning with traditional machine learning for accurate brain tumor detection and classification. Alongside, a custom CCNN+ML hybrid method was implemented, further refining results. MRI images were enhanced using Contrast Limited Adaptive Histogram Equalization (CLAHE) to optimize feature quality, boosting diagnostic precision.",
     image: "./images/Research/Brain Tumor/BT-Methodology.drawio.png",
+    DOI: "https://doi.org/10.1109/ICCIT64611.2024.11022418",
     authors: [
       {
         name: AUTHORS.SONGRAM_VAI.name,
@@ -400,9 +403,10 @@ const COMPLETED_PAPER: IPaper[] = [
     ]
   },
   {
-    title: "SF-CXRnet: A Lightweight Dual-Channel Convolutional Neural Network for Enhanced Diagnosis of COVID-19 and Pneumonia from Chest X-Ray Images",
+    title: "SF-CXRnet: A Lightweight Dual-Channel CNN for Enhanced Detection of COVID-19 and Pneumonia from Chest X-Ray Images",
     description: "This study introduces SF-CXRnet, a highly efficient and lightweight CNN optimized with minimal parameters to boost computational performance. The model accurately classifies chest X-rays into three categories—Normal, COVID-19, and Pneumonia—providing a reliable tool for diagnosing lung conditions.",
     image: "./images/Research/SF-CXRnet-Lung/curve.jpg",
+    DOI: "https://doi.org/10.1109/ICCIT64611.2024.11022038",
     authors: [
       {
         name: AUTHORS.SONGRAM_VAI.name,
